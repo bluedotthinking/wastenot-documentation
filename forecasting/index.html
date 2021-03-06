@@ -1,0 +1,616 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.6">
+    
+    
+      
+        <title>Forecasting - WasteNot Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6910b76c.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.196e0c26.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#forecasting" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="WasteNot Documentation" class="md-header-nav__button md-logo" aria-label="WasteNot Documentation">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            WasteNot Documentation
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Forecasting
+            
+          </span>
+        </div>
+      
+    </div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="WasteNot Documentation" class="md-nav__button md-logo" aria-label="WasteNot Documentation">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    WasteNot Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    <label class="md-nav__link" for="nav-2">
+      API Features
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="API Features" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        API Features
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Forecasting
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Forecasting
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pre-requisites" class="md-nav__link">
+    Pre-Requisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-a-forecast" class="md-nav__link">
+    Running a Forecast
+  </a>
+  
+    <nav class="md-nav" aria-label="Running a Forecast">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-inputs" class="md-nav__link">
+    Required Inputs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructing-a-request" class="md-nav__link">
+    Constructing a Request
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructing a Request">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-request" class="md-nav__link">
+    Example Request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-response" class="md-nav__link">
+    Example Response
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualizing-results" class="md-nav__link">
+    Visualizing Results
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../backcasting/" class="md-nav__link">
+      Backcasting
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+    <label class="md-nav__link" for="nav-3">
+      Code Examples
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Code Examples" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Code Examples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../code_examples_python/" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pre-requisites" class="md-nav__link">
+    Pre-Requisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-a-forecast" class="md-nav__link">
+    Running a Forecast
+  </a>
+  
+    <nav class="md-nav" aria-label="Running a Forecast">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-inputs" class="md-nav__link">
+    Required Inputs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructing-a-request" class="md-nav__link">
+    Constructing a Request
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructing a Request">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-request" class="md-nav__link">
+    Example Request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-response" class="md-nav__link">
+    Example Response
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualizing-results" class="md-nav__link">
+    Visualizing Results
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="forecasting">Forecasting</h1>
+<!-- For full documentation visit [mkdocs.org](https://www.mkdocs.org). -->
+
+<p>Making forecasts is a key functionality - the API provides a forward view of how many units to deliver/make ready
+at a certain datetime, to maximise our revenue or profits</p>
+<h2 id="pre-requisites">Pre-Requisites</h2>
+<ul>
+<li>Sign up for a free account on WasteNot</li>
+<li>Subscribe to one of the paid plans - free 30-day trials are available</li>
+<li>Located the account's API key in the "Subscription" navigation tab</li>
+</ul>
+<h2 id="running-a-forecast">Running a Forecast</h2>
+<p>To make a forecast, attach the inputs to a POST query and send a request to the API URL.</p>
+<pre><code>https://api.bluedotthinking.com/forecast
+</code></pre>
+<p>The request has a number of required parameters - some are required, and some are optional.</p>
+<p>At a minimum, the request requires historical data (dates, units demand), and the price and cost per unit</p>
+<h3 id="required-inputs">Required Inputs</h3>
+<ul>
+<li><code>timestamp</code> - an array of timestamps  in ISO-8601 format, indicating the start of the period.  This is historical data, used to generate the forecast.</li>
+<li><code>demand</code> - an array of integers, matched to the number of timestamps.  This is historical data, used to generate the forecast.</li>
+<li><code>sale_price</code> - the amount in local currency that one unit generates in terms of revenue</li>
+<li><code>cost</code> - the amount in local currency that one unit costs to supply</li>
+<li><code>shelf_life_seconds</code> - the shelf life of each item from the time it is delivered, in seconds</li>
+<li><code>opt_param</code> - the optimisation parameter - this can be either <code>profit</code> or <code>revenue</code></li>
+</ul>
+<h3 id="constructing-a-request">Constructing a Request</h3>
+<p>First, a basic example to get us started - we will use the minimum required inputs, optimising for profit:</p>
+<p>Here, we're using a number of default parameters that:</p>
+<ul>
+<li>30 days of daily demand data</li>
+<li>Generates a forecast for the next 7 timesteps (days)</li>
+<li>A delivery is made every day of the week</li>
+<li>For a product that has a shelf-life of 2 days, costs $1, and can be sold for $5</li>
+<li>Optimising for maximum profit - defined as revenue minus cost</li>
+</ul>
+<h4 id="example-request">Example Request</h4>
+<pre><code>{
+    "timestamp": ["2017-05-24T00:00:00", "2017-05-25T00:00:00", "2017-05-26T00:00:00", "2017-05-27T00:00:00", "2017-05-28T00:00:00", "2017-05-29T00:00:00", "2017-05-30T00:00:00", "2017-05-31T00:00:00", "2017-06-01T00:00:00", "2017-06-02T00:00:00", "2017-06-03T00:00:00", "2017-06-04T00:00:00", "2017-06-05T00:00:00", "2017-06-06T00:00:00", "2017-06-07T00:00:00", "2017-06-08T00:00:00", "2017-06-09T00:00:00", "2017-06-10T00:00:00", "2017-06-11T00:00:00", "2017-06-12T00:00:00", "2017-06-13T00:00:00", "2017-06-14T00:00:00", "2017-06-15T00:00:00", "2017-06-16T00:00:00", "2017-06-17T00:00:00", "2017-06-18T00:00:00", "2017-06-19T00:00:00", "2017-06-20T00:00:00", "2017-06-21T00:00:00", "2017-06-22T00:00:00"], 
+    "demand": [559, 1407, 1727, 930, 642, 1135, 527, 1084, 1132, 1687, 978, 695, 769, 748, 1007, 1187, 1667, 1407, 774, 622, 492, 940, 1083, 1720, 918, 1069, 780, 1282, 918, 1511],
+    "cost": 1, "sale_price": 5, 
+    "shelf_life_seconds": 172800.0, 
+    "opt_param": "profit",
+    "delivery_dayofweek": [0,1,2,3,4,5,6],
+    "forecast_periods_ahead":7
+}
+</code></pre>
+<h4 id="example-response">Example Response</h4>
+<pre><code>{
+    "status": "success",
+    "forecast_timestamp": [
+        "2017-06-23",
+        "2017-06-24",
+        "2017-06-25",
+        "2017-06-26",
+        "2017-06-27",
+        "2017-06-28",
+        "2017-06-29"
+    ],
+    "backcast_delivery_timestamp": null,
+    "backcast_delivery_units": null,
+    "predicted_demand_units": [
+        1808.0,
+        1166.0,
+        903.0,
+        934.0,
+        870.0,
+        1031.0,
+        1393.0
+    ],
+    "optimised_demand_units": [
+        1798.0,
+        1160.0,
+        898.0,
+        929.0,
+        865.0,
+        1025.0,
+        1386.0
+    ],
+    "delivery_timestamp": [
+        "2017-06-23",
+        "2017-06-24",
+        "2017-06-25",
+        "2017-06-26",
+        "2017-06-27",
+        "2017-06-28",
+        "2017-06-29",
+        "2017-06-30",
+        "2017-07-01"
+    ],
+    "delivery_units": [
+        1798.0,
+        1160.0,
+        898.0,
+        929.0,
+        865.0,
+        1025.0,
+        1386.0,
+        1841.0,
+        1203.0
+    ]
+}
+</code></pre>
+<p>The most important part of the JSON payload tell us how much to deliver, and when.<br />
+This is defined by the following parameters:</p>
+<ul>
+<li><code>delivery_timestamp</code> - This is the timestamp associated with the delivery - for a daily delivery, this is 12am of each day.</li>
+<li><code>delivery_units</code> - Number of units delivered at this timestamp</li>
+</ul>
+<p>For example, the calculation indicates we should deliver 1808 units on 2017-06-23, to maximise profit - this accounts for revenue and cost, including the potential for wastage.</p>
+<p>For those who want to delve further, the forecast for each periods is also provided - in this case, every day for the next 7 days.</p>
+<ul>
+<li><code>forecast_timestamp</code> - This is the timestamp associated with the beginning of the forecast period - for a daily forecast, this is 12am of each day!</li>
+<li><code>predicted_demand_units</code> - The "central estimate" of the forecast demand for this period - this number is NOT optimised to maximise your revenue or profit.</li>
+<li><code>optimised_demand_units</code> - The "optimal estimate" of the forecast demand for this period - this number IS optimised to maximise your revenue or profit, depending on the option you picked in the request.</li>
+</ul>
+<h4 id="visualizing-results">Visualizing Results</h4>
+<p>The <a href="https://nbviewer.jupyter.org/github/alvin-chan/bdt_django_front_end_postgres_mkdocs/blob/master/code_examples/forecast_example_1.ipynb?flush_cache=true">Forecasting Example</a> jupyter notebook provides a worked example for displaying this data using python</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href=".." class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Getting Started
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../backcasting/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Backcasting
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.fd16492e.min.js"></script>
+      <script src="../assets/javascripts/bundle.7836ba4d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
