@@ -1,0 +1,17 @@
+site_name: WasteNot Documentation
+
+nav:
+  - Getting Started: index.md
+  - API Features:
+      - Forecasting: forecasting.md  
+      - Backcasting: backcasting.md        
+  - Code Examples:
+      - Python: code_examples_python.md
+  
+theme:
+  name: material
+
+plugins:
+  - mkdocs-jupyter
+
+
