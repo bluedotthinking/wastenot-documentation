@@ -446,7 +446,7 @@ at a certain datetime, to maximise our revenue or profits</p>
 <ul>
 <li>30 days of daily demand data</li>
 <li>Generates a forecast for the next 7 timesteps (days)</li>
-<li>A delivery is made every day of the week</li>
+<li>Stock is replenished every day of the week</li>
 <li>For a product that has a shelf-life of 2 days, costs $1, and can be sold for $5</li>
 <li>Optimising for maximum profit - defined as revenue minus cost</li>
 </ul>
@@ -457,7 +457,7 @@ at a certain datetime, to maximise our revenue or profits</p>
     "cost": 1, "sale_price": 5, 
     "shelf_life_seconds": 172800.0, 
     "opt_param": "profit",
-    "delivery_dayofweek": [0,1,2,3,4,5,6],
+    "replenishment_dayofweek": [0,1,2,3,4,5,6],
     "forecast_periods_ahead":7
 }
 </code></pre>
@@ -531,7 +531,7 @@ This is defined by the following parameters:</p>
 <li><code>optimised_demand_units</code> - The "optimal estimate" of the forecast demand for this period - this number IS optimised to maximise your revenue or profit, depending on the option you picked in the request.</li>
 </ul>
 <h4 id="visualizing-results">Visualizing Results</h4>
-<p>The <a href="https://nbviewer.jupyter.org/github/alvin-chan/bdt_django_front_end_postgres_mkdocs/blob/master/code_examples/forecast_example_1.ipynb?flush_cache=true">Forecasting Example</a> jupyter notebook provides a worked example for displaying this data using python</p>
+<p>The <a href="https://nbviewer.jupyter.org/github/bluedotthinking/wastenot-documentation/blob/master/code_examples/forecast_example_1.ipynb?flush_cache=true">Forecasting Example</a> jupyter notebook provides a worked example for displaying this data using python</p>
                 
               
               

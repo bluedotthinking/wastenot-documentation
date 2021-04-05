@@ -41,7 +41,7 @@ Here, we're using a number of default parameters that:
 
 * 30 days of daily demand data
 * Generates a forecast for the next 7 timesteps (days)
-* A delivery is made every day of the week
+* Stock is replenished every day of the week
 * For a product that has a shelf-life of 2 days, costs $1, and can be sold for $5
 * Optimising for maximum profit - defined as revenue minus cost
 
@@ -53,7 +53,7 @@ Here, we're using a number of default parameters that:
 		"cost": 1, "sale_price": 5, 
 		"shelf_life_seconds": 172800.0, 
 		"opt_param": "profit",
-		"delivery_dayofweek": [0,1,2,3,4,5,6],
+		"replenishment_dayofweek": [0,1,2,3,4,5,6],
 		"forecast_periods_ahead":7
 	}
 
@@ -131,4 +131,4 @@ For those who want to delve further, the forecast for each periods is also provi
 
 #### Visualizing Results
 
-The [Forecasting Example](https://nbviewer.jupyter.org/github/alvin-chan/bdt_django_front_end_postgres_mkdocs/blob/master/code_examples/forecast_example_1.ipynb?flush_cache=true) jupyter notebook provides a worked example for displaying this data using python
+The [Forecasting Example](https://nbviewer.jupyter.org/github/bluedotthinking/wastenot-documentation/blob/master/code_examples/forecast_example_1.ipynb?flush_cache=true) jupyter notebook provides a worked example for displaying this data using python

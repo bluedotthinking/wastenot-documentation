@@ -37,7 +37,7 @@ The request has a number of required parameters - some are required, and some ar
 * `shelf_life_seconds` - the shelf life of each item from the time it is delivered, in seconds
 * `opt_param` - the optimisation parameter - this can be either `profit` or `revenue`
 * `forecast_periods_ahead` - the number of periods to forecast ahead - e.g. set this to 7 if the data is daily, and you wish to forecast 7 days ahead.
-* `delivery_dayofweek` - the days of the week on which a delivery will take place.  Starting with Monday = 0, ending with Sunday = 6.
+* `replenishment_dayofweek` - the days of the week on which replenishment will take place.  Starting with Monday = 0, ending with Sunday = 6.
 * `n_training_periods` - the number of periods from the beginning of the dataset to use for training - the simulation will take place immediately following the training period.  E.g. setting this to be **100** will use the first 100 days of the historical data to train the algorithm.
 * `n_forecasts_simulated` - the number of forecasts to be simulated - e.g. setting this to equal **4** allows us to see what would have happened if we had carried out forecasts over 4 consecutive weeks
 
@@ -75,7 +75,7 @@ Here, we're using a number parameters that include:
 		"shelf_life_seconds": 172800.0, 
 		"opt_param": "revenue",
 		"forecast_periods_ahead":7,
-		"delivery_dayofweek": [0,1,2,3,4,5,6],
+		"replenishment_dayofweek": [0,1,2,3,4,5,6],
 		"n_training_periods": 100,
 		"n_forecasts_simulated": 20,
 	}
@@ -209,4 +209,4 @@ For those who want to delve further, the precise time series for the simulation 
 
 #### Visualizing Results
 
-The [Backcasting Example](https://nbviewer.jupyter.org/github/alvin-chan/bdt_django_front_end_postgres_mkdocs/blob/master/code_examples/backcast_example_1.ipynb?flush_cache=true) jupyter notebook provides a worked example for displaying this data using python
+The [Backcasting Example](https://nbviewer.jupyter.org/github/bluedotthinking/wastenot-documentation/blob/master/code_examples/backcast_example_1.ipynb?flush_cache=true) jupyter notebook provides a worked example for displaying this data using python

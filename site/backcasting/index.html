@@ -530,7 +530,7 @@
 <li><code>shelf_life_seconds</code> - the shelf life of each item from the time it is delivered, in seconds</li>
 <li><code>opt_param</code> - the optimisation parameter - this can be either <code>profit</code> or <code>revenue</code></li>
 <li><code>forecast_periods_ahead</code> - the number of periods to forecast ahead - e.g. set this to 7 if the data is daily, and you wish to forecast 7 days ahead.</li>
-<li><code>delivery_dayofweek</code> - the days of the week on which a delivery will take place.  Starting with Monday = 0, ending with Sunday = 6.</li>
+<li><code>replenishment_dayofweek</code> - the days of the week on which replenishment will take place.  Starting with Monday = 0, ending with Sunday = 6.</li>
 <li><code>n_training_periods</code> - the number of periods from the beginning of the dataset to use for training - the simulation will take place immediately following the training period.  E.g. setting this to be <strong>100</strong> will use the first 100 days of the historical data to train the algorithm.</li>
 <li><code>n_forecasts_simulated</code> - the number of forecasts to be simulated - e.g. setting this to equal <strong>4</strong> allows us to see what would have happened if we had carried out forecasts over 4 consecutive weeks</li>
 </ul>
@@ -562,7 +562,7 @@
     "shelf_life_seconds": 172800.0, 
     "opt_param": "revenue",
     "forecast_periods_ahead":7,
-    "delivery_dayofweek": [0,1,2,3,4,5,6],
+    "replenishment_dayofweek": [0,1,2,3,4,5,6],
     "n_training_periods": 100,
     "n_forecasts_simulated": 20,
 }
@@ -685,7 +685,7 @@
 <li><code>simulation_wasted_units_timeseries</code> - time series of the number of units wasted at each time period, had the service been in place</li>
 </ul>
 <h4 id="visualizing-results">Visualizing Results</h4>
-<p>The <a href="https://nbviewer.jupyter.org/github/alvin-chan/bdt_django_front_end_postgres_mkdocs/blob/master/code_examples/backcast_example_1.ipynb?flush_cache=true">Backcasting Example</a> jupyter notebook provides a worked example for displaying this data using python</p>
+<p>The <a href="https://nbviewer.jupyter.org/github/bluedotthinking/wastenot-documentation/blob/master/code_examples/backcast_example_1.ipynb?flush_cache=true">Backcasting Example</a> jupyter notebook provides a worked example for displaying this data using python</p>
                 
               
               
