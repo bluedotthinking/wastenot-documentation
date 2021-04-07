@@ -19,7 +19,6 @@ import plotly.express as px
 import plotly.io as pio
 
 
-
 def get_table_download_link(df):
     """Generates a link allowing the data in a given panda dataframe to be downloaded
     in:  dataframe
@@ -35,7 +34,7 @@ def main():
 
 	menu = ["Home","Forecast","Backcast"]
 	choice = st.sidebar.selectbox("Navigation",menu)
-	access_token = st.sidebar.text_input('Access Token', 'abcdefghijk123456')	
+	access_token = st.sidebar.text_input('Access Token', '', help='Get your token from [https://www.bluedotthinking.com/subscriptions](https://www.bluedotthinking.com/subscriptions)')	
 
 	if choice == "Home":
 	
@@ -96,8 +95,8 @@ def main():
 		percentage_wasted = st.sidebar.slider('Percentage of Delivered units Wasted (Historical)', 0, 100, 20, 1)						
 		fraction_wasted = float(percentage_wasted)/100.
 		replenishment_daysofweek = st.sidebar.multiselect('What days of the week are your replenishments?',
-		['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
-		['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'])
+									['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
+									['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'])
 		
 		dow_mapping = {'Monday':0,
 						'Tuesday':1,
@@ -109,10 +108,34 @@ def main():
 						}
 						
 		replenishment_daysofweek = [dow_mapping[dow] for dow in replenishment_daysofweek]
-		
-		st.write('Perform a forecast with the provided data, with a unit cost of',currency_symbol,unit_cost,
-				 ', unit sell-price of',currency_symbol,unit_sell_price,
-				 ', for the next',forecast_ahead_periods,'periods (days)')
+		if access_token == '':
+			st.write('Get your Access Token at https://www.bluedotthinking.com/subscriptions/')
+		else:
+			st.write('Perform a forecast with the provided data and access token, with a unit cost of',currency_symbol,unit_cost,
+					 ', unit sell-price of',currency_symbol,unit_sell_price,
+					 ', for the next',forecast_ahead_periods,'periods (days)')
+
+# 		input_data_expander = st.beta_expander("Input Data", expanded=False)
+# 		with input_data_expander:
+# 			st.write('Input Demand Data:')
+# 		
+# 			fig_input = px.bar(input_df[:n_training_periods], x='date', y=['demand_units'], title='Training Data')
+# 			fig_input = px.bar(input_df[n_training_periods:n_training_periods+n_periods_simulated], x='date', y=['demand_units'], title='Test Demand Data')
+# 
+# 			fig_input = go.Figure()
+# 			fig_input.update_layout(title="Training & Test Demand Data")
+# 			fig_input.add_trace(
+# 				go.Bar(x=input_df['date'].values[:n_training_periods], 
+# 						y=input_df['demand_units'].values[:n_training_periods],
+# 					   name="Training Data"))
+# 			fig_input.add_trace(
+# 				go.Bar(x=input_df['date'][n_training_periods:n_training_periods+n_periods_simulated].values, 
+# 						y=input_df['demand_units'].values[n_training_periods:n_training_periods+n_periods_simulated],
+# 					  name="Test Data"))			
+# 				  
+# 			st.plotly_chart(fig_input, use_container_width=True)
+# 			st.dataframe(input_df)
+					 
 		if st.button("Run Forecast"):
 			if data_file is not None:
 				if upload_file_choice == "Upload A File":
@@ -121,15 +144,16 @@ def main():
 				if upload_file_choice == "Use Example File":
 					df = pd.read_csv(data_file)
 
-				st.dataframe(df)
-				
+				input_data_expander = st.beta_expander("Input Data", expanded=False)
+				with input_data_expander:
 
-				fig_input = go.Figure()
-				fig_input.update_layout(title="Historical Demand Data")
-				fig_input.add_trace(
-					go.Bar(x=df['date'].values, y=df['demand_units'].values,
-						   name="Training Data"))
-				st.plotly_chart(fig_input, use_container_width=True)
+					fig_input = go.Figure()
+					fig_input.update_layout(title="Historical Demand Data")
+					fig_input.add_trace(
+						go.Bar(x=df['date'].values, y=df['demand_units'].values,
+							   name="Training Data"))
+					st.plotly_chart(fig_input, use_container_width=True)
+					st.dataframe(df)	
 				
 				payload_dict = {'timestamp':list(df['date'].values),
 								'demand':[int(dd) for dd in df['demand_units'].values],
@@ -164,7 +188,7 @@ def main():
 													})													
 					forecast_df['timestamp'] = pd.to_datetime(forecast_df['timestamp'])													
 
-					st.write('Forecast Successful, Response code:',response.status_code)						
+					st.success('Forecast Successful, Response code:'+str(response.status_code))
 					fig_output = go.Figure()
 					fig_output.update_layout(title="Forecast Demand")
 					fig_output.add_trace(
@@ -179,16 +203,22 @@ def main():
 
 					st.plotly_chart(fig_output, use_container_width=True)
 
+					merged_df = pd.merge(delivery_df, forecast_df, on = 'timestamp', how='outer').fillna(0).sort_values('timestamp', ascending=True)
+
+					st.dataframe(merged_df)
+
+					csv = merged_df.to_csv(index=False)
+					b64 = base64.b64encode(csv.encode()).decode()  # some strings <-> bytes conversions necessary here
+					href = f'<a href="data:file/csv;base64,{b64}" download="replenishment.csv">Download Results in CSV format</a>'
+					st.markdown(href, unsafe_allow_html=True)
+					
+
+
+
 
 				except:
 					st.write('Forecast Failed, Response code:',response.status_code, ', Error message:',response.text)		
 
-			merged_df = pd.merge(delivery_df, forecast_df, on = 'timestamp', how='outer').fillna(0).sort_values('timestamp', ascending=True)
-
-			csv = merged_df.to_csv(index=False)
-			b64 = base64.b64encode(csv.encode()).decode()  # some strings <-> bytes conversions necessary here
-			href = f'<a href="data:file/csv;base64,{b64}" download="replenishment.csv">Download Results in CSV format</a>'
-			st.markdown(href, unsafe_allow_html=True)
 		
 	elif choice == "Backcast":
 	
@@ -245,14 +275,26 @@ def main():
 						max_value = None,
 						value=100,
 						step = 1)
-
-		fraction_wasted = 0.2
+		percentage_wasted = st.sidebar.slider('Percentage of Delivered units Wasted (Historical)', 0, 100, 20, 1)						
+		fraction_wasted = float(percentage_wasted)/100.
+		
+# 		fraction_wasted = 0.2
 		options = st.sidebar.multiselect('What days of the week are your replenishments?',
 		['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
 		['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'])
 		n_periods_simulated = int(forecast_ahead_periods*n_forecasts_simulated)
-		st.write('Perform a backcast with the provided file, with a unit cost of',
-					currency_symbol,unit_cost,', unit sell-price of',currency_symbol,unit_sell_price,', and a shelf-life of',shelf_life_days,'days.  Carrying out,',n_forecasts_simulated,'forecasts, forecasting',forecast_ahead_periods,'periods (days) ahead each time')		
+		if access_token == '':
+			st.write('Get your Access Token at https://www.bluedotthinking.com/subscriptions/')
+		else:		
+			st.write('Perform a backcast with the provided file, with a unit cost of',
+						currency_symbol,unit_cost,', unit sell-price of',currency_symbol,unit_sell_price,', and a shelf-life of',shelf_life_days,'days.  Carrying out,',n_forecasts_simulated,'forecasts, forecasting',forecast_ahead_periods,'periods (days) ahead each time')
+			st.write('The first',n_training_periods,'periods (days) will be used as the training data, and the following',
+						n_periods_simulated,'periods will be simulated')
+			st.write("To calculate the system's benefits, we assume",percentage_wasted,"% of the units that had been delivered historically were wasted")
+
+
+
+
 		if st.button("Run Backcast"):
 			if data_file is not None:
 				if upload_file_choice == "Upload A File":
@@ -260,6 +302,25 @@ def main():
 					input_df = pd.read_csv(data_file)
 				if upload_file_choice == "Use Example File":
 					input_df = pd.read_csv(data_file)				
+
+				input_data_expander = st.beta_expander("Input Data", expanded=False)
+				with input_data_expander:		
+					fig_input = px.bar(input_df[:n_training_periods], x='date', y=['demand_units'], title='Training Data')
+					fig_input = px.bar(input_df[n_training_periods:n_training_periods+n_periods_simulated], x='date', y=['demand_units'], title='Test Demand Data')
+
+					fig_input = go.Figure()
+					fig_input.update_layout(title="Training & Test Demand Data")
+					fig_input.add_trace(
+						go.Bar(x=input_df['date'].values[:n_training_periods], 
+								y=input_df['demand_units'].values[:n_training_periods],
+							   name="Training Data"))
+					fig_input.add_trace(
+						go.Bar(x=input_df['date'][n_training_periods:n_training_periods+n_periods_simulated].values, 
+								y=input_df['demand_units'].values[n_training_periods:n_training_periods+n_periods_simulated],
+							  name="Test Data"))			
+				  
+					st.plotly_chart(fig_input, use_container_width=True)
+					st.dataframe(input_df)
 
 				payload_dict = {'timestamp':list(input_df['date'].values),
 								'demand':[int(dd) for dd in input_df['demand_units'].values],
@@ -397,7 +458,13 @@ def main():
 					st.plotly_chart(fig, use_container_width=True)
 
 					st.line_chart(data=results_df[['actual_demand_units_unconstrained','simulation_delivered_units']], width=0, height=0, use_container_width=True)
-				
+					csv = results_df.to_csv(index=False)
+					b64 = base64.b64encode(csv.encode()).decode()  # some strings <-> bytes conversions necessary here
+					href = f'<a href="data:file/csv;base64,{b64}" download="backcast_timeseries_results.csv">Download Time-Series Results in CSV format</a>'
+					st.markdown(href, unsafe_allow_html=True)
+
+
+					
 					kpi_df = pd.DataFrame(data={'KPI':['Profit','Revenue','Cost','Satisfied Units','Wasted Units'],
 												'Without WasteNot':[json_data['historical_profit'], json_data['historical_revenue'], json_data['historical_cost'], json_data['historical_demand_units_total'], json_data['historical_wasted_units_total']],
 												'With WasteNot':[json_data['simulation_profit'], json_data['simulation_revenue'], json_data['simulation_cost'], json_data['simulation_satisfied_units_total'], json_data['simulation_wasted_units_total']],
@@ -411,11 +478,11 @@ def main():
 												'Change in KPI':abs_change_in_kpi,
 												'% Change in KPI':percentage_change_in_kpi
 												})
-
-
-
-					st.table(kpi_df)			
-
+					st.dataframe(kpi_df)			
+					csv = kpi_df.to_csv(index=False)
+					b64 = base64.b64encode(csv.encode()).decode()  # some strings <-> bytes conversions necessary here
+					href = f'<a href="data:file/csv;base64,{b64}" download="backcast_summary_results.csv">Download Summary Results in CSV format</a>'
+					st.markdown(href, unsafe_allow_html=True)
 
 
 					fig_unmet_waste = go.Figure()
@@ -431,27 +498,22 @@ def main():
 							   name="Unmet Demand Units"))
 
 					st.plotly_chart(fig_unmet_waste, use_container_width=True)
+
+# 					merged_df = pd.merge(delivery_df, forecast_df, on = 'timestamp', how='outer').fillna(0).sort_values('timestamp', ascending=True)
+# 
+# 					st.dataframe(merged_df)
+# 
+# 					csv = merged_df.to_csv(index=False)
+# 					b64 = base64.b64encode(csv.encode()).decode()  # some strings <-> bytes conversions necessary here
+# 					href = f'<a href="data:file/csv;base64,{b64}" download="replenishment.csv">Download Results in CSV format</a>'
+# 					st.markdown(href, unsafe_allow_html=True)
 							
 				except:
-					st.write('Backcast Failed, Response code:',response.status_code, ', Error message:',response.text)
+					error = 'Backcast Failed, Response code:'+str(response.status_code)+', Error message:'+response.text
+					st.exception(error)
 
-				st.write('Input Demand Data:')
 				
-				fig_input = px.bar(input_df[:n_training_periods], x='date', y=['demand_units'], title='Training Data')
-				fig_input = px.bar(input_df[n_training_periods:n_training_periods+n_periods_simulated], x='date', y=['demand_units'], title='Test Demand Data')
 
-				fig_input = go.Figure()
-				fig_input.update_layout(title="Training & Test Demand Data")
-				fig_input.add_trace(
-					go.Bar(x=input_df['date'].values[:n_training_periods], 
-							y=input_df['demand_units'].values[:n_training_periods],
-						   name="Training Data"))
-				fig_input.add_trace(
-					go.Bar(x=input_df['date'][n_training_periods:n_training_periods+n_periods_simulated].values, 
-							y=input_df['demand_units'].values[n_training_periods:n_training_periods+n_periods_simulated],
-						  name="Test Data"))			
-				st.plotly_chart(fig_input, use_container_width=True)
-				st.dataframe(input_df)
 				
 
 
