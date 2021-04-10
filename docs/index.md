@@ -11,6 +11,10 @@ Explore the key functionalities of the platform to get started:
 * [Forecasting](forecasting.md)
 * [Backcasting](backcasting.md)
 
+Try out the functionalities in our Streamlit Web Application:
+
+* [Streamlit Web App](https://share.streamlit.io/bluedotthinking/wastenot-documentation/web_app_streamlit/wastenot_streamlit_app.py)
+
 Adapt the worked examples with your own data, using jupyter notebooks written in python:
 
 * [Python Code Examples](code_examples_python.md)

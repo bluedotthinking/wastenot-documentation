@@ -7,6 +7,7 @@ nav:
       - Backcasting: backcasting.md        
   - Code Examples:
       - Python: code_examples_python.md
+  - Web App: streamlit_web_app.md
   
 theme:
   name: material
