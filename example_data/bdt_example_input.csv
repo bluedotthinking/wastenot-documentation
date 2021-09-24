@@ -1,4 +1,4 @@
-date,demand_units
+timestamp,demand_units
 2017-05-24T00:00:00,559
 2017-05-25T00:00:00,1407
 2017-05-26T00:00:00,1727
