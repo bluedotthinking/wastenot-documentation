@@ -1,6 +1,6 @@
 # Code Examples - Python
 
-[Jupyter Notebook calling the Forecasting endpoint and visualising the results, using Python 3](https://nbviewer.jupyter.org/github/bluedotthinking/wastenot-documentation/blob/master/code_examples/forecast_examples.ipynb?flush_cache=true).
+[Jupyter Notebook calling the Forecasting endpoint and visualising the results, using Python 3](https://nbviewer.org/github/bluedotthinking/wastenot-documentation/blob/master/code_examples/forecast_examples.ipynb?flush_cache=true).
 
 A number of example scenarios are provided for an example item with a unit cost of $1, sale-price of $5, with:
 
