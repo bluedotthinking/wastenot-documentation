@@ -14,7 +14,7 @@
     
     
       
-        <title>Python - WasteNot Documentation</title>
+        <title>Web App - WasteNot Documentation</title>
       
     
     
@@ -57,7 +57,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#code-examples-python" class="md-skip">
+        <a href="#web-app" class="md-skip">
           Skip to content
         </a>
       
@@ -87,7 +87,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Python
+              Web App
             
           </span>
         </div>
@@ -202,12 +202,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
     <label class="md-nav__link" for="nav-3">
       Code Examples
       <span class="md-nav__icon md-icon"></span>
@@ -224,20 +222,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../code_examples_python/" class="md-nav__link">
       Python
     </a>
-    
   </li>
 
         
@@ -274,37 +263,12 @@
               
                 
                 
-                <h1 id="code-examples-python">Code Examples - Python</h1>
-<p><a href="https://nbviewer.org/github/bluedotthinking/wastenot-documentation/blob/master/code_examples/forecast_examples.ipynb?flush_cache=true">Jupyter Notebook calling the Forecasting endpoint and visualising the results, using Python 3</a>.</p>
-<p>A number of example scenarios are provided for an example item with a unit cost of $1, sale-price of $5, with:</p>
+                <h1 id="web-app">Web App</h1>
+<p>Examples for calling the Forecasting and Backcasting endpoints and visualising the results have been prepared using Streamlit.</p>
+<p>No coding experience is required - simply upload a CSV with the historical demand (or use out example), and use the point-and-click interface to see the waste reduction savings and business benefits available.</p>
 <ul>
-<li>Varying Item Shelf-Life</li>
-<li>Different Replenishment Schedules (e.g. next replenishment, periodic replenishment points, custom dates)</li>
-<li>Changing levels of stock-on-hand, and the expiry date for each batch</li>
-<li>Different forecasting periods (e.g. forecasting for the week ahead, vs. information for the next replenishment only)</li>
+<li><a href="https://share.streamlit.io/bluedotthinking/wastenot-documentation/web_app_streamlit/wastenot_streamlit_app.py">Streamlit Web App</a> </li>
 </ul>
-<!-- 
-* [Forecasting Example 1](https://nbviewer.jupyter.org/github/bluedotthinking/wastenot-documentation/blob/master/code_examples/forecast_example_1.ipynb?flush_cache=true) 
-
-    Restaurant forecasting the next 7 days, for an item with shelf-life of 2 days, with daily deliveries
-
-* [Forecasting Example 2](https://nbviewer.jupyter.org/github/bluedotthinking/wastenot-documentation/blob/master/code_examples/forecast_example_2.ipynb?flush_cache=true) 
-
-    Restaurant forecasting the next 7 days, for an item with shelf-life of 2 days, with daily deliveries.  There is excess stock-on-hand (3000 units, expiring in 2 days on 2018-08-12)
-
-* [Forecasting Example 3](https://nbviewer.jupyter.org/github/bluedotthinking/wastenot-documentation/blob/master/code_examples/forecast_example_3.ipynb?flush_cache=true) 
-
-    Restaurant forecasting the next 14 days, for an item with shelf-life of 5 days, with deliveries on Mondays and Fridays every week.
-
-
-* [Backcasting Example](https://nbviewer.jupyter.org/github/bluedotthinking/wastenot-documentation/blob/master/code_examples/backcast_example_1.ipynb?flush_cache=true)
-
-    Backcast Simulation over 30 days, for a business forecasting 2 days ahead each time, for an item with shelf-life of 2 days, with daily deliveries.
-
-    Approx $6,000/month of cost savings and profit improvement vs business-as-usual (wasting 20% of all delivered units)
-
-
- -->
                 
               
               
@@ -319,27 +283,6 @@
       
         
 <footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
-        
-          <a href="../forecasting/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-            </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Forecasting
-              </div>
-            </div>
-          </a>
-        
-        
-      </nav>
-    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
