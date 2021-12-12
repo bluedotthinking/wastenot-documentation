@@ -1,8 +1,17 @@
 # Code Examples - Python
 
-Examples for calling the Forecasting and Backcasting endpoints and visualising the results have been prepared in jupyter notebooks, using python3.
-	
-	
+[Jupyter Notebook calling the Forecasting endpoint and visualising the results, using Python 3](https://nbviewer.jupyter.org/github/bluedotthinking/wastenot-documentation/blob/master/code_examples/forecast_examples.ipynb?flush_cache=true).
+
+A number of example scenarios are provided for an example item with a unit cost of $1, sale-price of $5, with:
+
+* Varying Item Shelf-Life
+* Different Replenishment Schedules (e.g. next replenishment, periodic replenishment points, custom dates)
+* Changing levels of stock-on-hand, and the expiry date for each batch
+* Different forecasting periods (e.g. forecasting for the week ahead, vs. information for the next replenishment only)
+
+
+
+<!-- 
 * [Forecasting Example 1](https://nbviewer.jupyter.org/github/bluedotthinking/wastenot-documentation/blob/master/code_examples/forecast_example_1.ipynb?flush_cache=true) 
 
 	Restaurant forecasting the next 7 days, for an item with shelf-life of 2 days, with daily deliveries
@@ -23,3 +32,4 @@ Examples for calling the Forecasting and Backcasting endpoints and visualising t
 	Approx $6,000/month of cost savings and profit improvement vs business-as-usual (wasting 20% of all delivered units)
 	
 	
+ -->

@@ -1,14 +1,15 @@
 site_name: WasteNot Documentation
 
 nav:
-  - Getting Started: index.md
-  - API Features:
-      - Forecasting: forecasting.md  
-      - Backcasting: backcasting.md        
+  - Home: index.md
+  - API Guide:
+      - Parameters: parameters.md
+      - Forecasting: forecasting.md
+      - Developer Docs: https://api.bluedotthinking.com/docs
   - Code Examples:
       - Python: code_examples_python.md
-  - Web App: streamlit_web_app.md
-  
+#  - Web App: streamlit_web_app.md
+
 theme:
   name: material
 

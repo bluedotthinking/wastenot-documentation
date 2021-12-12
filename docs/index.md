@@ -6,15 +6,24 @@ A pre-requisite for using this API is an account & API Key - you can sign up at 
 
 The WasteNot API was built to reduce wastage & improve profits for organisations with perishable goods, through the delivery of optimised forecasts.
 
-Explore the key functionalities of the platform to get started:
+Explore the forecasting functionality of the platform to get started:
 
 * [Forecasting](forecasting.md)
-* [Backcasting](backcasting.md)
 
+For a full list of the request & response parameters:
+
+* [Parameters](parameters.md)
+
+<!-- 
 Try out the functionalities in our Streamlit Web Application:
 
 * [Streamlit Web App](https://share.streamlit.io/bluedotthinking/wastenot-documentation/web_app_streamlit/wastenot_streamlit_app.py)
+ -->
 
-Adapt the worked examples with your own data, using jupyter notebooks written in python:
+Adapt the worked examples with your own data, using Jupyter Notebooks written in python:
 
-* [Python Code Examples](code_examples_python.md)
+* [Example Notebooks](code_examples_python.md)
+
+For Developers, check out the schema and technical documentation generated using FastAPI:
+
+* [Developer Docs](https://api.bluedotthinking.com/docs)

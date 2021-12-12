@@ -14,7 +14,7 @@
     
     
       
-        <title>Python - WasteNot Documentation</title>
+        <title>Parameters - WasteNot Documentation</title>
       
     
     
@@ -57,7 +57,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#code-examples-python" class="md-skip">
+        <a href="#query-object-parameters" class="md-skip">
           Skip to content
         </a>
       
@@ -87,7 +87,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Python
+              Parameters
             
           </span>
         </div>
@@ -141,10 +141,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     <label class="md-nav__link" for="nav-2">
       API Guide
       <span class="md-nav__icon md-icon"></span>
@@ -161,11 +163,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../parameters/" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
       Parameters
     </a>
+    
   </li>
 
         
@@ -202,12 +213,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
     <label class="md-nav__link" for="nav-3">
       Code Examples
       <span class="md-nav__icon md-icon"></span>
@@ -224,20 +233,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../code_examples_python/" class="md-nav__link">
       Python
     </a>
-    
   </li>
 
         
@@ -274,37 +274,120 @@
               
                 
                 
-                <h1 id="code-examples-python">Code Examples - Python</h1>
-<p><a href="https://nbviewer.jupyter.org/github/bluedotthinking/wastenot-documentation/blob/master/code_examples/forecast_examples.ipynb?flush_cache=true">Jupyter Notebook calling the Forecasting endpoint and visualising the results, using Python 3</a>.</p>
-<p>A number of example scenarios are provided for an example item with a unit cost of $1, sale-price of $5, with:</p>
-<ul>
-<li>Varying Item Shelf-Life</li>
-<li>Different Replenishment Schedules (e.g. next replenishment, periodic replenishment points, custom dates)</li>
-<li>Changing levels of stock-on-hand, and the expiry date for each batch</li>
-<li>Different forecasting periods (e.g. forecasting for the week ahead, vs. information for the next replenishment only)</li>
-</ul>
-<!-- 
-* [Forecasting Example 1](https://nbviewer.jupyter.org/github/bluedotthinking/wastenot-documentation/blob/master/code_examples/forecast_example_1.ipynb?flush_cache=true) 
-
-    Restaurant forecasting the next 7 days, for an item with shelf-life of 2 days, with daily deliveries
-
-* [Forecasting Example 2](https://nbviewer.jupyter.org/github/bluedotthinking/wastenot-documentation/blob/master/code_examples/forecast_example_2.ipynb?flush_cache=true) 
-
-    Restaurant forecasting the next 7 days, for an item with shelf-life of 2 days, with daily deliveries.  There is excess stock-on-hand (3000 units, expiring in 2 days on 2018-08-12)
-
-* [Forecasting Example 3](https://nbviewer.jupyter.org/github/bluedotthinking/wastenot-documentation/blob/master/code_examples/forecast_example_3.ipynb?flush_cache=true) 
-
-    Restaurant forecasting the next 14 days, for an item with shelf-life of 5 days, with deliveries on Mondays and Fridays every week.
-
-
-* [Backcasting Example](https://nbviewer.jupyter.org/github/bluedotthinking/wastenot-documentation/blob/master/code_examples/backcast_example_1.ipynb?flush_cache=true)
-
-    Backcast Simulation over 30 days, for a business forecasting 2 days ahead each time, for an item with shelf-life of 2 days, with daily deliveries.
-
-    Approx $6,000/month of cost savings and profit improvement vs business-as-usual (wasting 20% of all delivered units)
-
-
- -->
+                <h1 id="query-object-parameters">Query Object Parameters</h1>
+<table>
+<thead>
+<tr>
+<th align="left">Request Object</th>
+<th align="center">Values</th>
+<th align="right">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">timestamp</td>
+<td align="center">['2018-07-01','2018-07-02','2018-07-03']</td>
+<td align="right"><strong><em>[Required] List of Strings</em></strong> - Contains the datetime of the historical demand.  Must be in ISO8601 format (YYYY-MM-DD)</td>
+</tr>
+<tr>
+<td align="left">demand</td>
+<td align="center">[1192,1131,838]</td>
+<td align="right"><strong><em>[Required] List of Integers/Floats</em></strong> - Contains the demanded units for each historical period</td>
+</tr>
+<tr>
+<td align="left">cost</td>
+<td align="center">1</td>
+<td align="right"><strong><em>[Required] Float</em></strong> - Cost for one unit of the item</td>
+</tr>
+<tr>
+<td align="left">sale_price</td>
+<td align="center">5</td>
+<td align="right"><strong><em>[Required] Float</em></strong> - Sale Price for one unit of the item</td>
+</tr>
+<tr>
+<td align="left">shelf_life_seconds</td>
+<td align="center">172800</td>
+<td align="right"><strong><em>[Required] Integer</em></strong> - Shelf Life of the item, in seconds</td>
+</tr>
+<tr>
+<td align="left">replenishment_schedule</td>
+<td align="center">'next_timestep','periodic','custom_dates'</td>
+<td align="right"><strong><em>[Optional] String</em></strong> - Replenishment schedule - defaults to <em>'next_timestep'</em> (replenish the day after the historical data if not specified).  <em>'periodic'</em> is for regular replenishments throughout a week. <em>'custom_dates'</em> is for defining specific replenishment dates</td>
+</tr>
+<tr>
+<td align="left">replenishment_dayofweek</td>
+<td align="center">[0,1,2,3,4,5,6]</td>
+<td align="right"><strong><em>[Optional] List of Integers</em></strong> - Only used when replenishment_schedule is <strong><em>'periodic'</em></strong>, specifies the days of the week when replenishment occurs.  Values between 0 (for Monday) and 6 (for Sunday)</td>
+</tr>
+<tr>
+<td align="left">future_replenishment_datetimes</td>
+<td align="center">['2018-08-13','2018-08-15']</td>
+<td align="right"><strong><em>[Optional] List of Strings</em></strong> - Only used when replenishment_schedule is <strong><em>'custom_dates'</em></strong>, specifies the dates when replenishment occurs.  Must be in ISO8601 format (YYYY-MM-DD)</td>
+</tr>
+<tr>
+<td align="left">forecast_start_datetime</td>
+<td align="center">'2018-08-13'</td>
+<td align="right"><strong><em>[Optional] String</em></strong> -  Only used when replenishment_schedule is <strong><em>'periodic'</em></strong>.  Start point for range of dates for which to generate replenishments.  Must be in ISO8601 format (YYYY-MM-DD)</td>
+</tr>
+<tr>
+<td align="left">forecast_end_datetime</td>
+<td align="center">'2018-08-19'</td>
+<td align="right"><strong><em>[Optional] String</em></strong> -  Only used when replenishment_schedule is <strong><em>'periodic'</em></strong>.  End point for range of dates for which to generate replenishments</td>
+</tr>
+<tr>
+<td align="left">stock_expiry_datetimes</td>
+<td align="center">['2018-08-13','2018-08-16']</td>
+<td align="right"><strong><em>[Optional] List of Strings</em></strong> - Contains the expiry datetimes for batches of Stock-on-Hand.  Must be in ISO8601 format (YYYY-MM-DD)</td>
+</tr>
+<tr>
+<td align="left">stock_available_units</td>
+<td align="center">[500,2500]</td>
+<td align="right"><strong><em>[Optional] List of Integers/Floats</em></strong> - Contains the units for each batch of Stock-on-Hand in stock_expiry_datetimes</td>
+</tr>
+</tbody>
+</table>
+<h1 id="response-object-parameters">Response Object Parameters</h1>
+<table>
+<thead>
+<tr>
+<th align="left">Response Object</th>
+<th align="center">Values</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">status</td>
+<td align="center"><em>success</em> or <em>failure</em></td>
+<td align="left"><strong><em>String</em></strong> - returns status of the request</td>
+</tr>
+<tr>
+<td align="left">replenishment_timestamp</td>
+<td align="center">['2018-08-11','2018-08-12']</td>
+<td align="left"><strong><em>List of Strings</em></strong> - returns the datetime of the replenishments</td>
+</tr>
+<tr>
+<td align="left">replenishment_units</td>
+<td align="center">[1578, 1304]</td>
+<td align="left"><strong><em>List of Integers/Floats</em></strong> - returns the replenishment quantity corresponding to each element in replenishment_timestamp</td>
+</tr>
+<tr>
+<td align="left">forecast_timestamp</td>
+<td align="center">['2018-08-11','2018-08-12',...]</td>
+<td align="left"><strong><em>List of Strings</em></strong> - returns the timestamp for each forecast time period</td>
+</tr>
+<tr>
+<td align="left">predicted_demand_units</td>
+<td align="center">[1434, 1196,...]</td>
+<td align="left"><strong><em>List of Integers/Floats</em></strong> - returns the predicted demand (without buffer) for each element in forecast_timestamp</td>
+</tr>
+<tr>
+<td align="left">optimised_demand_units</td>
+<td align="center">[1578, 1304]</td>
+<td align="left"><strong><em>List of Integers/Floats</em></strong> - returns the predicted demand (with buffer applied) for each element in forecast_timestamp</td>
+</tr>
+</tbody>
+</table>
                 
               
               
@@ -323,7 +406,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../forecasting/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href=".." class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -332,11 +415,25 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Forecasting
+                Home
               </div>
             </div>
           </a>
         
+        
+          <a href="../forecasting/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Forecasting
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
         
       </nav>
     </div>
