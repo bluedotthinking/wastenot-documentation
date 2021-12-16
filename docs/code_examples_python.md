@@ -1,6 +1,6 @@
 # Code Examples - Python
 
-[Jupyter Notebook calling the Forecasting endpoint and visualising the results, using Python 3](https://nbviewer.org/github/bluedotthinking/wastenot-documentation/blob/master/code_examples/forecast_examples.ipynb).
+[WasteNot Forecast Scenario Examples, using Python 3 in a Jupyter Notebook](https://nbviewer.org/github/bluedotthinking/wastenot-documentation/blob/master/code_examples/forecast_examples.ipynb).
 
 A number of example scenarios are provided for an example item with a unit cost of $1, sale-price of $5, with:
 
@@ -8,7 +8,17 @@ A number of example scenarios are provided for an example item with a unit cost 
 * Different Replenishment Schedules (e.g. next replenishment, periodic replenishment points, custom dates)
 * Changing levels of stock-on-hand, and the expiry date for each batch
 * Different forecasting periods (e.g. forecasting for the week ahead, vs. information for the next replenishment only)
+* Including Events
 
+
+[WasteNot Benefit Assessment, using Python 3 in a Jupyter Notebook](https://nbviewer.org/github/bluedotthinking/wastenot-documentation/blob/master/code_examples/wastenot_calculate_benefits.ipynb).
+
+In this example, a week-ahead forecast is simulated for an item with a one-day shelf life, daily replenishments and variable demand.
+
+Compared to an unoptimised, unbuffered forecast, WasteNot helps achieve:
+
+* Significant improvement in Service Levels (91% -> 98% of demand satisfied)
+* Increase in Profit ($117K -> $122K, an improvement of $5K over 28 days)
 
 
 <!-- 
